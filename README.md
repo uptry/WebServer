@@ -6,4 +6,4 @@
 
 ## 📄 License
 
-[MIT](./LICENSE) © 2026 <yisu>
+[MIT](./LICENSE) © 2026 yisu
