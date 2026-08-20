@@ -9,7 +9,11 @@
 class sem{
 public:
     sem(){
+<<<<<<< HEAD
         if(sem_init(&m_sem,0,0) != 0)
+=======
+        if(sem_init(&m_sem,0,0) ! = 0)
+>>>>>>> be9da2acf650beedc3a9b9446c829a5442710b6c
             throw std::exception();
     }
     sem(int num){
@@ -32,7 +36,11 @@ private:
 class locker{
     public:
         locker(){
+<<<<<<< HEAD
             if (pthread_mutex_init(&m_mutex,NULL) != 0)
+=======
+            if (pthread_mutex_init(&m_murex,NULL) ! = 0)
+>>>>>>> be9da2acf650beedc3a9b9446c829a5442710b6c
                 throw std::exception();
         }
         ~locker(){
@@ -57,12 +65,21 @@ class cond{
             if (pthread_cond_init(&m_cond,NULL) != 0){
                 throw std::exception();
             }
+<<<<<<< HEAD
         }
         ~cond(){
                 pthread_cond_destroy(&m_cond);
             }//等待
         bool timewait(pthread_mutex_t *m_mutex,struct timespec t){
             return pthread_cond_timedwait(&m_cond,m_mutex,&t) == 0;
+=======
+            ~cond(){
+                pthread_cond_destroy(&m_cond);
+            }//等待
+        }
+        bool timewait(pthread_mutex_t *m_mutex,struct timespec t){
+            return pthread_cond_timewait(&m_cond,m_mutex,&t) == 0;
+>>>>>>> be9da2acf650beedc3a9b9446c829a5442710b6c
         }
         bool signal(){
             return pthread_cond_signal(&m_cond) == 0;
